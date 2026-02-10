@@ -137,10 +137,11 @@ const menuIcons = {
 function Header() {
   const location = useLocation();
 
-  const headerClass =
-    location.pathname === "/"
-      ? "fixed top-0 w-full z-50"
-      : "sticky top-0 w-full z-50";
+const fixedRoutes = ["/", "/login", "/register"];
+
+const headerClass = fixedRoutes.includes(location.pathname)
+  ? "fixed top-0 w-full z-50"
+  : "sticky top-0 w-full z-50";
 
   const { isLoggedIn } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -196,7 +197,7 @@ function Header() {
                   to="/months-courses"
                   className="hidden md:inline-flex relative group items-center px-8 py-2 overflow-hidden text-lg font-medium text-[var(--primary)] border-2 border-[var(--primary)] rounded-md hover:text-white group hover:bg-gray-50"
                 >
-                  <span className="absolute right-0 block w-full h-0 transition-all bg-[var(--primary)] opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+                  <span className="absolute right-0 block w-full h-0 transition-all bg-[var(--primary)] opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-200 ease"></span>
 
                   <span className="absolute left-0 pl-2 flex items-center justify-end w-10 h-10 duration-300 transform -translate-x-full group-hover:translate-x-0 ease">
                     <svg

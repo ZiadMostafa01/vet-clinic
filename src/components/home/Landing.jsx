@@ -51,6 +51,8 @@ function Landing() {
 
         {/* الصورة */}
         <div
+          data-aos="fade-up"
+          data-aos-duration="850"
           id="hero-img"
           className="md:basis-7/12 basis-full flex-center-both"
         >

@@ -2,8 +2,11 @@ import logo from "../../assets/images/logo.jpg";
 import main from "../../assets/images/hero-photo.png";
 import bg from "../../assets/images/funky-lines.webp";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 function Login() {
+    const { isLoggedIn, setIsLoggedIn } = useAuth();
+
   return (
     <div
       class="min-h-screen flex flex-col md:flex-row"
@@ -51,8 +54,10 @@ function Login() {
           </div>
 
           <button
+            onClick={() => setIsLoggedIn(true)}
+            disabled={isLoggedIn}
             type="submit"
-            class="w-full bg-blue-500 text-white py-3 rounded-md font-bold hover:bg-blue-700 transition"
+            class="w-full bg-blue-500 cursor-pointer text-white py-3 rounded-md font-bold hover:bg-blue-700 transition"
           >
             تسجيل الدخول
           </button>

@@ -142,7 +142,7 @@ function Register() {
 
           <button
             type="submit"
-            class="w-full bg-blue-500 text-white py-3 rounded-md font-bold hover:bg-blue-700 transition"
+            class="w-full bg-blue-500 cursor-pointer text-white py-3 rounded-md font-bold hover:bg-blue-700 transition"
           >
             أنشئ الحساب!
           </button>

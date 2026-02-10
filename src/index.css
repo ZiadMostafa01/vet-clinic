@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 :root {
   --primary: #3fc7f3;
   --icon: #43941f;
@@ -35,10 +34,10 @@ body {
   background-size: cover;
 }
 
-#background{
+#background {
   background: url(assets/images/background.jpg);
-  background-size: cover;   
-  background-position: center; 
+  background-size: cover;
+  background-position: center;
 }
 
 /* Wave-Style */
@@ -82,5 +81,21 @@ body {
   }
   100% {
     transform: translateX(85px);
+  }
+}
+/* Image-motion */
+#hero-img {
+  animation: floatImage 4s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1rem);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
