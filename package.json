@@ -11,7 +11,11 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
+<<<<<<< HEAD
   "homepage": "https://ZiadMostafa01.github.io/pet-clinic",
+=======
+  "homepage": "https://ZiadMostafa01.github.io/educational-platform",
+>>>>>>> fff3a1ad8384b69ddc0236d8ceeeefb1c6d335d2
   "dependencies": {
     "@tailwindcss/vite": "^4.1.16",
     "aos": "^2.3.4",
