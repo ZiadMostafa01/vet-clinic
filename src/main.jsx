@@ -6,8 +6,8 @@ import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+    <BrowserRouter basename="/pet-clinic/">
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
 );
