@@ -3,6 +3,7 @@ import PetCareSection from "../components/Home/PetCareSection";
 import PricingSection from "../components/Home/PricingSection";
 import WhatWeOffer from "../components/Home/WhatWeOffer";
 import ValueSection from "../components/Home/ValueSection";
+import TeamSection from "../components/Home/TeamSection";
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <PetCareSection />
       <ValueSection />
       <WhatWeOffer />
+      <TeamSection />
       <PricingSection />
     </>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import { CheckCircle, Gem } from "lucide-react";
 import img1 from "../../assets/images/img_17-1-2048x1024.jpg";
 import img2 from "../../assets/images/img_14-2048x1024.jpg";
-import bg from "../../assets/images//paw_img_copy.png";
+import bg from "../../assets/images/paw_img_copy.png";
 
 
 const servicesLeft = [
@@ -97,11 +97,12 @@ export default function PetCareSection() {
           <div className="border-b-2 border-dashed border-gray-300 mb-6"></div>
 
           <p className="text-gray-600 text-sm leading-relaxed mb-8">
-            Iaculis in odio non phasellus mollis dictum ad luctus blandit
-            laoreet nulla. Mi aenean primis etiam vivamus pharetra consequat nec
-            lectus congue montes. Nulla tortor hendrerit mi interdum venenatis
-            amet ipsum libero platea. Convallis curabitur maximus parturient
-            sapien auctor netus.
+            Karas Veterinary Clinic provides professional and compassionate care
+            for pets, combining advanced medicine, experienced veterinarians,
+            preventive treatments, and personalized attention. We focus on every
+            animal’s health, comfort, and happiness, ensuring lifelong wellness.
+            Our dedicated team educates owners, builds trust, and creates a
+            safe, welcoming environment for pets and families alike.
           </p>
 
           <div className="grid sm:grid-cols-2 gap-6">

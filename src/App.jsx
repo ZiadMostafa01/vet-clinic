@@ -5,6 +5,7 @@ import "aos/dist/aos.css";
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import ScrollToTop from "./components/layout/ScrollToTop";
+import OnlinePayment from "./pages/OnlinePayment";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         {/* Main Layout */}
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
+          <Route path="payment" element={<OnlinePayment />} />
         </Route>
       </Routes>
     </>

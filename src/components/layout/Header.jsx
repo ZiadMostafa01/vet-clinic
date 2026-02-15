@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../../assets/images/Logo_main.png";
 import ProgressBar from "./ProgressBar";
 import { useEffect, useState } from "react";
@@ -24,14 +25,14 @@ function Header() {
     >
       {" "}
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="">
+        <Link to="/">
           <img src={logo} className="w-44 sm:w-52" alt="" />{" "}
-        </a>
+        </Link>
         <div className="flex items-center gap-6  text-gray-700">
           <nav className="translate-y-0.5 hidden lg:flex gap-6">
-            <a href="#" className={underline}>
+            <Link to="/" className={underline}>
               Home
-            </a>
+            </Link>
 
             <div className="relative group">
               <a
@@ -170,9 +171,9 @@ function Header() {
                 </div>
               </div>
             </div>
-            <a href="#" className={underline}>
+            <Link to="payment" className={underline}>
               Online Payment
-            </a>
+            </Link>
             {/* For Vets Dropdown */}
             <div className="relative group">
               <a

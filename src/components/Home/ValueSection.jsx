@@ -5,21 +5,21 @@ import hero from "../../assets/images/img_8.jpg"; // حط صورة الدكات�
 export default function ValueSection() {
   const cards = [
     {
-      icon: <PawPrint size={22} />,
+      icon: <PawPrint size={25} />,
       title: "Our Vision",
-      desc: "Vestibulum suspendisse taciti platea torquent condimentum egestas nascetur netus augue in dictum",
+      desc: "Compassionate veterinary care focused on pet health comfort trust and lifelong wellbeing",
       dark: false,
     },
     {
-      icon: <HeartHandshake size={22} />,
+      icon: <HeartHandshake size={25} />,
       title: "Our Mission",
-      desc: "Vestibulum suspendisse taciti platea torquent condimentum egestas nascetur netus augue in dictum",
+      desc: "Providing advanced medical services with dedication expertise empathy and genuine love",
       dark: true,
     },
     {
-      icon: <ShieldPlus size={22} />,
+      icon: <ShieldPlus size={25} />,
       title: "Our Motto",
-      desc: "Vestibulum suspendisse taciti platea torquent condimentum egestas nascetur netus augue in dictum",
+      desc: "Treating every pet with respect care responsibility passion and professional commitment",
       dark: false,
     },
   ];
