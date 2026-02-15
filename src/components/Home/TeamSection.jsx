@@ -59,7 +59,7 @@ export default function TeamSection() {
             return (
               <div
                 key={i}
-                className="bg-[#D9C8E8] backdrop-blur rounded-2xl p-3  shadow-sm hover:shadow-lg transition relative"
+                className="bg-[#E7D9F3] backdrop-blur rounded-2xl p-3  shadow-sm hover:shadow-lg transition relative"
               >
                 {/* role badge */}
                 <div
