@@ -45,8 +45,8 @@ export default function TeamSection() {
         </span>
 
         {/* title */}
-        <h2 className="text-3xl md:text-4xl font-extrabold text-[#3b2a6d] leading-tight mb-14">
-          Dedicated Professionals Committed <br />
+        <h2 className="text-3xl md:text-4xl max-w-2xl mx-auto font-extrabold text-[#3b2a6d] leading-tight mb-14">
+          Dedicated Professionals Committed 
           to Your Pet’s Wellness
         </h2>
 
