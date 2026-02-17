@@ -6,12 +6,12 @@ import img4 from '../../assets/images/azi.jpg'
 const team = [
   {
     role: "Founder & Surgeon",
-    name: "Michael gerges",
+    name: "Dr. Michael gerges",
     img: img1,
   },
   {
     role: "Veterinary Oncologist",
-    name: "Diana Lavareda",
+    name: "Dr. Diana Lavareda",
     img: img2,
   },
   {
@@ -21,7 +21,7 @@ const team = [
   },
   {
     role: "Veterinary Surgeon",
-    name: "Azijada Mulalić",
+    name: "Dr. Azijada Mulalić",
     img: img4,
   },
 ];

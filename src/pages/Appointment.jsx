@@ -175,8 +175,10 @@ export default function Appointment() {
                     Select Doctor
                   </label>
                   <select className="w-full rounded-lg text-sm bg-gray-200 focus:bg-gray-100 transition duration-300 px-4 py-3 outline-none focus:ring focus:ring-purple-400">
-                    <option>Dr. Emily Hart</option>
-                    <option>Dr. John Smith</option>
+                    <option>Dr. Michael gerges</option>
+                    <option>Dr. Diana Lavareda</option>
+                    <option>Dr. Sophia Lane</option>
+                    <option>Dr. Azijada Mulalić</option>
                   </select>
                 </div>
 
