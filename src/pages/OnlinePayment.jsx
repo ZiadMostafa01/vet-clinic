@@ -10,7 +10,7 @@ function OnlinePayment() {
           </>
         }
       />
-      <div className="h-[500px]"></div>
+      <main className="h-[500px]"></main>
     </div>
   );
 }
