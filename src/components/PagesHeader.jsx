@@ -1,25 +1,37 @@
-import bg from "../assets/images/bg_img.png";
+import circle from "../assets/images/Circle.webp";
+import shape from "../assets/images/shape-services-768x560.WEBP";
 
-function PagesHeader({title , description}) {
+function PagesHeader({ title, description }) {
   return (
-    <section
-      className="bg-purple-700 relative rounded-b-4xl sm:rounded-b-[70px] pt-[79.05px] flex justify-center items-center"
-      style={{
-        background: `url(${bg})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "bottom center",
-        backgroundColor: "#F5F2F8",
-        width: "100%",
-      }}
-    >
-      <div className="py-12 sm:py-26 text-center text-[var(--primary1)] space-y-5">
-        <h1 className="font-bold  text-4xl sm:text-7xl">{title}</h1>
-        <p className="font-medium text-sx sm:text-2xl">
-         {description}
-        </p>
+    <div>
+      <div className="absolute top-0 -right-80 overflow-hidden ">
+        <img
+          src={circle}
+          alt=""
+          className="ml-auto  overflow-hidden  w-[600px] max-w-full"
+        />
       </div>
-    </section>
+      <div className="absolute bottom-0 -left-80 overflow-hidden ">
+        <img
+          src={circle}
+          alt=""
+          className="ml-auto  overflow-hidden  w-[600px] max-w-full"
+        />
+      </div>
+      <div className="relative py-16 flex items-center justify-center  px-4">
+        <div className="max-w-3xl text-center pt-[79.05px]">
+          {/* Heading */}
+          <h1 className="font-heading  text-[var(--primary)] italic text-4xl sm:text-5xl md:text-7xl font-extrabold  leading-tight">
+            {title}
+          </h1>
+
+          {/* Description */}
+          <p className="font-heading  mt-6 text-lg sm:text-lg text-gray-600 max-w-xl mx-auto">
+            {description}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 export default PagesHeader;

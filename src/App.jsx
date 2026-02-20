@@ -11,6 +11,8 @@ import Appointment from "./pages/Appointment";
 import OurTeam from "./pages/OurTeam";
 import OurServices from "./pages/OurServices";
 import Clinics from "./pages/Clinics";
+import ChatBot from "./components/ChatBot";
+import DoctorDetails from "./layouts/DoctorDetails";
 
 
 function App() {
@@ -36,8 +38,10 @@ function App() {
           <Route path="our-team" element={<OurTeam />} />
           <Route path="all-services" element={<OurServices />} />
           <Route path="clinics" element={<Clinics />} />
+          <Route path="/doctor/:id" element={<DoctorDetails />} />
         </Route>
       </Routes>
+      <ChatBot />
     </>
   );
 }

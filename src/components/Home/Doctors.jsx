@@ -1,15 +1,18 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { useRef } from "react";
+import { Link } from "react-router-dom";
 
+// استيراد ملفات Swiper
 import "swiper/css";
 import "swiper/css/navigation";
+
+// استيراد الصور (تأكد من المسارات)
 import doctor1 from "../../assets/images/doctors/Ajla Zahirovic.jpg";
 import doctor2 from "../../assets/images/doctors/Abdullah Ghonim.jpg";
 import doctor3 from "../../assets/images/doctors/Milana Skoric.jpg";
 import doctor4 from "../../assets/images/doctors/Dr. Mostafa Zein.jpg";
 import doctor5 from "../../assets/images/doctors/Usama Rehman.jpg";
-import { useRef } from "react";
-import { Link } from "react-router-dom";
 
 const doctors = [
   {
@@ -44,29 +47,40 @@ function Doctors() {
   const nextRef = useRef(null);
 
   return (
-    <section className="bg-[var(--karas_paper)] py-20 px-4 relative">
+    <section className="bg-[var(--karas_paper)] py-24 px-6 relative">
       <div className="max-w-7xl mx-auto relative">
-        <h2 className="text-3xl font-heading text-[#3b2a6d] ">Our Doctors</h2>
-        <div className="border border-[var(--primary)] w-46 mb-10"></div>
+        {/* الهيدر بنفس ستايل الصورة */}
+        <div className="border-b border-[#d1cdc2] mb-12 pb-4 flex justify-between items-end">
+          <div>
+            <h2 className="text-3xl font-serif italic text-[#444]">
+              Our Doctors
+            </h2>
+            <p className="text-[11px] text-[#aaa] mt-1 uppercase tracking-widest">
+              Expert Medical Team
+            </p>
+          </div>
 
-        {/* أزرار مخصصة */}
-        <div
-          ref={prevRef}
-          className="hidden md:block  absolute top-1/2 left-2 z-10 cursor-pointer p-3 bg-white rounded-full shadow-lg hover:bg-purple-100 transition"
-        >
-          &#8592; {/* سهم لليسار */}
-        </div>
-        <div
-          ref={nextRef}
-          className="hidden md:block absolute top-1/2 right-2 z-10 cursor-pointer p-3 bg-white rounded-full shadow-lg hover:bg-purple-100 transition"
-        >
-          &#8594; {/* سهم لليمين */}
+          {/* أزرار التنقل (Arrows) بشكل أنظف */}
+          <div className="flex gap-4 mb-2">
+            <button
+              ref={prevRef}
+              className="text-2xl text-[#888] hover:text-[#333] transition-colors"
+            >
+              &#8592;
+            </button>
+            <button
+              ref={nextRef}
+              className="text-2xl text-[#888] hover:text-[#333] transition-colors"
+            >
+              &#8594;
+            </button>
+          </div>
         </div>
 
         <Swiper
           modules={[Navigation]}
-          spaceBetween={30}
-          slidesPerView={3}
+          spaceBetween={40}
+          slidesPerView={3.3}
           grabCursor
           navigation={{
             prevEl: prevRef.current,
@@ -77,38 +91,31 @@ function Doctors() {
             swiper.params.navigation.nextEl = nextRef.current;
           }}
           breakpoints={{
-            0: { slidesPerView: 1.2 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3.3 },
+            0: { slidesPerView: 1.2, spaceBetween: 20 },
+            768: { slidesPerView: 2.2, spaceBetween: 30 },
+            1024: { slidesPerView: 3.3, spaceBetween: 40 },
           }}
+          className="team-swiper"
         >
           {doctors.map((doctor, index) => (
             <SwiperSlide key={index}>
-              <Link
-                to="/our-team"
-                className="bg-white rounded-lg shadow-sm overflow-hidden"
-              >
-                <img
-                  src={doctor.image}
-                  alt={doctor.name}
-                  className="w-full h-[470px] object-cover"
-                />
-                <div className="px-6 py-4 bg-white rounded-b-lg">
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    {doctor.name}
-                  </h3>
-                  <div className="flex justify-between items-center gap-2">
-                    <p className="text-sm text-[var(--primary)] uppercase tracking-wide mt-2">
-                      {doctor.role}
-                    </p>
-                    {/* <a
-                      href="#"
-                      className="bg-[var(--primary)] text-white rounded-lg py-1 px-3 hover:bg-[var(--primary1)] transition "
-                    >
-                      About
-                    </a> */}
-                  </div>
+              <Link to="/our-team" className="flex flex-col items-start group">
+                {/* برواز الصورة - نفس تصميم الصفحة السابقة */}
+                <div className="bg-white p-2 shadow-sm border border-[#e5e1d8] mb-5 w-full aspect-[3/4] overflow-hidden">
+                  <img
+                    src={doctor.image}
+                    alt={doctor.name}
+                    className="w-full h-full object-cover transition-all duration-700 ease-in-out group-hover:scale-105"
+                  />
                 </div>
+
+                {/* التفاصيل النصية */}
+                <h4 className="text-[14px] font-bold text-[#333] uppercase tracking-widest leading-tight group-hover:text-[var(--primary)] transition-colors">
+                  {doctor.name}
+                </h4>
+                <p className="text-[12px] text-[#888] mt-1 italic font-serif tracking-wide leading-tight">
+                  {doctor.role}
+                </p>
               </Link>
             </SwiperSlide>
           ))}
