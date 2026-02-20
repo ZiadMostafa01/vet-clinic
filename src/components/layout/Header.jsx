@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 import logo from "../../assets/images/Logo_main.png";
 import ProgressBar from "./ProgressBar";
 import { useEffect, useState } from "react";
+
+const underline = "hover:text-[var(--primary)] transition duration-300";
+const getNavClass = ({ isActive }) =>
+  isActive
+    ? "text-[var(--primary)] font-bold"
+    : "hover:text-[var(--primary)] transition duration-300 font-bold";
 
 function Header() {
   const [subOpen, setSubOpen] = useState(false);
@@ -16,11 +24,10 @@ function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  const underline = "hover:text-[#F6844D] transition duration-300";
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-colors duration-400
-        ${scrolled ? "bg-white " : "bg-transparent"}
+        ${scrolled ? "bg-[var(--karas_paper)] " : "bg-transparent"}
       `}
     >
       {" "}
@@ -29,237 +36,109 @@ function Header() {
           <img src={logo} className="w-44 sm:w-52" alt="" />{" "}
         </Link>
         <div className="flex items-center gap-6  text-gray-700">
-          <nav className="translate-y-0.5 hidden lg:flex gap-6">
-            <Link to="/" className={underline}>
+          <nav className="translate-y-0.5 hidden lg:flex gap-6 font-bold ">
+            <NavLink to="/" className={getNavClass}>
               Home
-            </Link>
+            </NavLink>
 
             <div className="relative">
               {/* Main dropdown trigger */}
               <div className="relative group">
-                <a
-                  href="#services"
-                  className={`${underline} flex items-center gap-1`}
+                <NavLink
+                  to="/all-services"
+                  className={(props) =>
+                    `${getNavClass(props)} flex items-center gap-1`
+                  }
                 >
-                  <span>About Us</span>
+                  <span>Our Services</span>
                   <svg
                     aria-hidden="true"
-                    class="e-font-icon-svg e-fas-angle-down w-2.5"
+                    class="e-font-icon-svg e-fas-angle-down w-2.5 fill-current"
                     viewBox="0 0 320 512"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
                   </svg>{" "}
-                </a>
+                </NavLink>
 
                 {/* Main dropdown */}
 
-                <div className="absolute left-0 top-full mt-2 w-40 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
-                  <a
-                    href="#consulting"
-                    className="block px-4 py-2 hover:bg-purple-100"
+                <div className="absolute left-0 top-full mt-2  w-48 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
+                  <NavLink
+                    to="all-services"
+                    className={(props) =>
+                      `${getNavClass(props)} block px-4 py-3 hover:bg-gray-100 transition`
+                    }
                   >
-                    Why Karas
-                  </a>
-                  <div
-                    className="relative"
-                    onMouseEnter={() => setSubOpen(true)}
-                    onMouseLeave={() => setSubOpen(false)}
-                  >
-                    <a
-                      href="#surgery"
-                      className="block px-4 py-2 hover:bg-purple-100 flex justify-between items-center"
-                    >
-                      Our Team <i className="fa-solid fa-angle-right"></i>
-                    </a>
+                    All Services{" "}
+                  </NavLink>
 
-                    {/* Sub-dropdown يظهر فقط عند hover على Surgery */}
-                    {subOpen && (
-                      <div className="absolute top-0 left-full mt-0 w-40 bg-white shadow-lg rounded-md z-50">
-                        <a
-                          href="#orthopedic"
-                          className="block px-4 py-2 hover:bg-purple-100"
-                        >
-                          Veterinarian Vacancy
-                        </a>
-                        <a
-                          href="#dental"
-                          className="block px-4 py-2 hover:bg-purple-100"
-                        >
-                          Work With Us!{" "}
-                        </a>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* عنصر Surgery مع sub-dropdown */}
-
-                  <a
-                    href="#vaccination"
-                    className="block px-4 py-2 hover:bg-purple-100"
+                  <NavLink
+                    to="pcr-testing"
+                    className={(props) =>
+                      `${getNavClass(props)} block px-4 py-3 hover:bg-gray-100  transition`
+                    }
                   >
-                    Testimonials
-                  </a>
-                  <a
-                    href="#vaccination"
-                    className="block px-4 py-2 hover:bg-purple-100"
-                  >
-                    Volunteer
-                  </a>
+                    PCR Testing{" "}
+                  </NavLink>
                 </div>
               </div>
             </div>
+            <NavLink to="/our-team" className={getNavClass}>
+              Our Team
+            </NavLink>
             <div className="relative">
               {/* Main dropdown trigger */}
               <div className="relative group">
-                <a
-                  href="#services"
-                  className={`${underline} flex items-center gap-1`}
+                <NavLink
+                  to="/clinics"
+                  className={(props) =>
+                    `${getNavClass(props)} flex items-center gap-1`
+                  }
                 >
-                  <span>Services</span>
+                  <span>Clinics</span>
                   <svg
                     aria-hidden="true"
-                    class="e-font-icon-svg e-fas-angle-down w-2.5"
+                    class="e-font-icon-svg e-fas-angle-down w-2.5 fill-current"
                     viewBox="0 0 320 512"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
                   </svg>{" "}
-                </a>
+                </NavLink>
 
                 {/* Main dropdown */}
 
-                <div className="absolute left-0 top-full mt-2 w-40 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
-                  <div
-                    className="relative"
-                    onMouseEnter={() => setSubOpen(true)}
-                    onMouseLeave={() => setSubOpen(false)}
+                <div className="absolute left-0 top-full mt-2 w-70 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
+                  <NavLink
+                    to="clinic-jlt"
+                    className={(props) =>
+                      `${getNavClass(props)} block px-4 py-3 hover:bg-gray-100  transition`
+                    }
                   >
-                    <a
-                      href="#surgery"
-                      className="block px-4 py-2 hover:bg-purple-100 flex justify-between items-center"
-                    >
-                      Our Services
-                      <i className="fa-solid fa-angle-right"></i>
-                    </a>
+                    Karas Veterinary Clinic JLT{" "}
+                  </NavLink>
 
-                    {/* Sub-dropdown يظهر فقط عند hover على Surgery */}
-                    {subOpen && (
-                      <div className="absolute top-0 left-full mt-0 w-40 bg-white shadow-lg rounded-md z-50">
-                        <a
-                          href="#orthopedic"
-                          className="block px-4 py-2 hover:bg-purple-100"
-                        >
-                          Diagnosis
-                        </a>
-                        <a
-                          href="#orthopedic"
-                          className="block px-4 py-2 hover:bg-purple-100"
-                        >
-                          Emergency Care
-                        </a>
-                        <a
-                          href="#orthopedic"
-                          className="block px-4 py-2 hover:bg-purple-100"
-                        >
-                          Internal Medicine{" "}
-                        </a>
-                        <a
-                          href="#dental"
-                          className="block px-4 py-2 hover:bg-purple-100"
-                        >
-                          Microchipping
-                        </a>
-                        <a
-                          href="#cardiology"
-                          className="block px-4 py-2 hover:bg-purple-100"
-                        >
-                          Pet Vaccinations
-                        </a>
-                        <a
-                          href="#cardiology"
-                          className="block px-4 py-2 hover:bg-purple-100"
-                        >
-                          Flea & Tick Prevention
-                        </a>
-                        <a
-                          href="#cardiology"
-                          className="block px-4 py-2 hover:bg-purple-100"
-                        >
-                          Pharmacy & Refills
-                        </a>
-                        <a
-                          href="#cardiology"
-                          className="block px-4 py-2 hover:bg-purple-100"
-                        >
-                          Nutritional Counseling
-                        </a>
-                        <a
-                          href="#cardiology"
-                          className="block px-4 py-2 hover:bg-purple-100"
-                        >
-                          Pain Managment
-                        </a>
-                      </div>
-                    )}
-                  </div>
-                  <a
-                    href="#consulting"
-                    className="block px-4 py-2 hover:bg-purple-100"
+                  <NavLink
+                    to="clinic-downtown"
+                    className={(props) =>
+                      `${getNavClass(props)} block px-4 py-3 hover:bg-gray-100  transition`
+                    }
                   >
-                    Our Prices
-                  </a>
-
-                  {/* عنصر Surgery مع sub-dropdown */}
-
-                  <a
-                    href="#vaccination"
-                    className="block px-4 py-2 hover:bg-purple-100"
-                  >
-                    PCR Prices
-                  </a>
+                    Karas Veterinary Clinic Downtown{" "}
+                  </NavLink>
                 </div>
               </div>
             </div>
-            <Link to="payment" className={underline}>
-              Online Payment
-            </Link>
-            {/* For Vets Dropdown */}
-            <div className="relative group">
-              <a
-                href="#vets"
-                className={`${underline} flex items-center gap-1`}
-              >
-                <span>For Vets</span>
-                <svg
-                  aria-hidden="true"
-                  class="e-font-icon-svg e-fas-angle-down w-2.5"
-                  viewBox="0 0 320 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
-                </svg>{" "}
-              </a>
-              <div className="absolute left-0 top-full mt-2 w-40 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
-                <a
-                  href="#resources"
-                  className="block px-4 py-2 hover:bg-purple-100"
-                >
-                  PCR Referral
-                </a>
-                <a
-                  href="#signup"
-                  className="block px-4 py-2 hover:bg-purple-100"
-                >
-                  X-Ray Referral
-                </a>
-              </div>
-            </div>
+
+            <NavLink to="/contact" className={getNavClass}>
+              Contact Us{" "}
+            </NavLink>
           </nav>
 
           <button
             onClick={() => setMobileMenu(!mobileMenu)}
-            className="relative cursor-pointer block lg:hidden p-2 rounded-xl bg-[var(--primary)] hover:bg-[#F5D7DF] text-white hover:text-[var(--primary)] transition duration-300  w-10 h-10"
+            className="relative cursor-pointer block lg:hidden p-2 rounded-lg bg-[var(--primary)] hover:bg-[var(--primary1)] text-white transition duration-300  w-10 h-10"
           >
             {/* Menu icon */}
             <svg
@@ -303,10 +182,10 @@ function Header() {
 
               <details className="mx-6 py-4 border-b border-dashed group">
                 <summary className="flex justify-between cursor-pointer">
-                  About us
+                  Our Services
                   <svg
                     aria-hidden="true"
-                    class="e-font-icon-svg e-fas-angle-down w-2.5 transition-transform duration-300 group-open:rotate-180"
+                    class="e-font-icon-svg e-fas-angle-down w-2.5 fill-current transition-transform duration-300 group-open:rotate-180"
                     viewBox="0 0 320 512"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -314,27 +193,35 @@ function Header() {
                   </svg>
                 </summary>
                 <div className="mt-3 flex flex-col gap-2 text-gray-600">
-                  <a href="#" className={underline}>
-                    Why Karas
+                  <a
+                    href="#"
+                    onClick={() => setMobileMenu(false)}
+                    className={underline}
+                  >
+                    All Services
                   </a>
-                  <a href="#" className={underline}>
-                    Our Team
-                  </a>
-                  <a href="#" className={underline}>
-                    Testimonials
-                  </a>
-                  <a href="#" className={underline}>
-                    Volunteer
+                  <a
+                    href="#"
+                    onClick={() => setMobileMenu(false)}
+                    className={underline}
+                  >
+                    PCR Testing
                   </a>
                 </div>
               </details>
-
+              <Link
+                to="/team"
+                onClick={() => setMobileMenu(false)}
+                className="mx-6 py-4 border-b border-dashed "
+              >
+                Our Team
+              </Link>
               <details className="mx-6 py-4 border-b border-dashed group">
                 <summary className="flex justify-between cursor-pointer">
-                  Services
+                  Clinics
                   <svg
                     aria-hidden="true"
-                    class="e-font-icon-svg e-fas-angle-down w-2.5 transition-transform duration-300 group-open:rotate-180"
+                    class="e-font-icon-svg e-fas-angle-down w-2.5 fill-current transition-transform duration-300 group-open:rotate-180"
                     viewBox="0 0 320 512"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -342,14 +229,19 @@ function Header() {
                   </svg>
                 </summary>
                 <div className="mt-3 flex flex-col gap-2 text-gray-600">
-                  <a href="#" className={underline}>
-                    Our Services
+                  <a
+                    href="#"
+                    onClick={() => setMobileMenu(false)}
+                    className={underline}
+                  >
+                    Karas Veterinary Clinic JLT{" "}
                   </a>
-                  <a href="#" className={underline}>
-                    Our Prices
-                  </a>
-                  <a href="#" className={underline}>
-                    PCR Prices
+                  <a
+                    href="#"
+                    onClick={() => setMobileMenu(false)}
+                    className={underline}
+                  >
+                    Karas Veterinary Clinic Downtown{" "}
                   </a>
                 </div>
               </details>
@@ -359,32 +251,12 @@ function Header() {
                 onClick={() => setMobileMenu(false)}
                 className="mx-6 py-4 border-b border-dashed "
               >
-                Online Payment
+                Contact Us{" "}
               </Link>
 
-              <details className="mx-6 py-4 border-b border-dashed group">
-                <summary className="flex justify-between cursor-pointer">
-                  For Vets
-                  <svg
-                    aria-hidden="true"
-                    class="e-font-icon-svg e-fas-angle-down w-2.5 transition-transform duration-300 group-open:rotate-180"
-                    viewBox="0 0 320 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
-                  </svg>
-                </summary>
-                <div className="mt-3 flex flex-col gap-2 text-gray-600">
-                  <a href="#" className={underline}>
-                    PCR Referral
-                  </a>
-                  <a href="#" className={underline}>
-                    X-Ray Referral
-                  </a>
-                </div>
-              </details>
-              <Link
-                to="appointment"
+              <a
+                href="https://karas.viggo.vet/online-booking/"
+                target="_blank"
                 onClick={() => setMobileMenu(false)}
                 className="flex cursor-pointer mx-6 my-3 justify-center  items-center gap-1  text-sm bg-[var(--primary)] hover:bg-[var(--secondary)] text-white hover:text-[var(--primary)] px-6 py-2 rounded-lg transition"
               >
@@ -400,14 +272,15 @@ function Header() {
                   />
                 </svg>{" "}
                 <span>Book an Appointment</span>
-              </Link>
+              </a>
             </nav>
           </div>
 
           {/* Book Now Button */}
-          <Link
-            to="appointment" 
-            className="hidden sm:flex cursor-pointer  items-center gap-1  text-sm bg-[var(--primary)] hover:bg-[var(--secondary)] text-white hover:text-[var(--primary)] px-6 py-2 rounded-full transition"
+          <a
+            href="https://karas.viggo.vet/online-booking/"
+            target="_blank"
+            className="hidden sm:flex cursor-pointer font-bold  items-center gap-1  text-sm bg-[var(--primary)] hover:bg-purple-900 text-white hover:bg-[var(--primary1)] px-6 py-2 rounded-lg transition"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -421,7 +294,7 @@ function Header() {
               />
             </svg>{" "}
             <span>Book an Appointment</span>
-          </Link>
+          </a>
         </div>
       </div>
       <ProgressBar />

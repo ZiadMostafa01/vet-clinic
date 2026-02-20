@@ -25,7 +25,7 @@ export default function ValueSection() {
   ];
 
   return (
-    <section className="relative w-full">
+    <section className="bg-[var(--karas_paper)] relative w-full">
       {/* Background Image */}
       <div className="relative h-[520px] w-full overflow-hidden">
         <img

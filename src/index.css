@@ -2,37 +2,29 @@
 
 :root {
   --primary: #72529b;
-  --primary1: #43306D;
-  --secondary: #F5D7DF;
-  --secondary1: #F6844D;
+  --primary1: #43306d;
+  --secondary: #f5d7df;
+  --secondary1: #f6844d;
   --icon: #43941f;
+
+  --karas_aubergine: #39164f;
+  --karas_aubergine_ink: #2a0f3b;
+
+  --karas_paper: #faf7f4;
+  --karas_surface: #ffffff;
+  --karas_mist: #f3eeea;
+
+  --karas_text: #3b3a3a;
+  --karas_text_strong: #1f1e1e;
+  --karas_border: #e6e0da;
 }
 
-/* @font-face {
-  font-family: "dynapuff";
-  src: url("./assets/fonts/dynapuff.bold.ttf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-@layer base {
-  .font-dynapuff {
-    font-family: "dynapuff", sans-serif;
-  }
-}
-@font-face {
-  font-family: "dynapuff1";
-  src: url("./assets/fonts/dynapuff.regular.ttf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-@layer base {
-  .font-dynapuff1 {
-    font-family: "dynapuff1", sans-serif;
-  }
-} */
 
 body {
-  font-family: "dynapuff", sans-serif;
+  font-family: "Source Sans 3", sans-serif;
+}
+.font-heading {
+  font-family: "Fraunces", serif;
 }
 
 #landing {

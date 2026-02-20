@@ -1,142 +1,51 @@
-import { MapPin, Mail, Phone, Clock } from "lucide-react";
-import hero from "../assets/images/img_8.jpg"; 
-import PagesHeader from "../components/PagesHeader";
+import circle from "../assets/images/Circle.webp";
+import shape from "../assets/images/shape-services-768x560.WEBP";
+import img from "../assets/images/8E4C7C23-7741-4385-8979-DEDBFB38E6DD.png";
 
-const items = [
-  {
-    title: "Our Clinic",
-    icon: MapPin,
-    bg: "bg-[#f6f3fa]",
-    border: "border-dashed border-[#7b5ba7]",
-    iconBg: "bg-[#7b5ba7]",
-    text: "Jln Cempaka Wangi No 22\nJakarta - Indonesia.",
-    titleColor: "text-[#4b2c73]",
-  },
-  {
-    title: "Email Support",
-    icon: Mail,
-    bg: "bg-[#fff5ef]",
-    border: "border-dashed border-[#f6844d]",
-    iconBg: "bg-[#f6844d]",
-    text: "support@yourdomain.tld\nhello@yourdomain.tld",
-    titleColor: "text-[#f6844d]",
-  },
-  {
-    title: "Let's Talk",
-    icon: Phone,
-    bg: "bg-[#f6f3fa]",
-    border: "border-dashed border-[#7b5ba7]",
-    iconBg: "bg-[#7b5ba7]",
-    text: "Phone : +6221.2002.2012\nFax : +6221.2002.2013",
-    titleColor: "text-[#4b2c73]",
-  },
-  {
-    title: "Opening Hours",
-    icon: Clock,
-    bg: "bg-[#fff5ef]",
-    border: "border-dashed border-[#f6844d]",
-    iconBg: "bg-[#f6844d]",
-    text: "Monday – Saturday\n9:00 AM – 6:00 PM",
-    titleColor: "text-[#f6844d]",
-  },
-];
 function Contact() {
   return (
-    <div>
-      <PagesHeader
-        title="Contact"
-        description={
-          <>
-            Contact Karas Today for Personalized <br />
-            Pet Support
-          </>
-        }
-      />
-   
+    <div className="bg-[var(--karas_paper)] overflow-hidden relative">
+      <div className="absolute top-0 -right-80 overflow-hidden ">
+        <img
+          src={circle}
+          alt=""
+          className="ml-auto  overflow-hidden  w-[600px] max-w-full"
+        />
+      </div>
+      <div className="absolute bottom-0 -left-80 overflow-hidden ">
+        <img
+          src={circle}
+          alt=""
+          className="ml-auto  overflow-hidden  w-[600px] max-w-full"
+        />
+      </div>
+      <section className="relative py-16 flex items-center justify-center  px-4">
+        <div className="max-w-3xl text-center pt-[79.05px]">
+          {/* Heading */}
+          <h1 className="font-heading  text-[var(--primary)] italic text-4xl sm:text-5xl md:text-7xl font-extrabold  leading-tight">
+            Contact Us
+          </h1>
+
+          {/* Description */}
+          <p className="font-heading  mt-6 text-lg sm:text-lg text-gray-600 max-w-xl mx-auto">
+            We would like to hear from you!
+          </p>
+        </div>
+      </section>
+
       <main>
-        <div className="max-w-7xl mx-auto px-6 py-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {items.map((item, i) => {
-              const Icon = item.icon;
-
-              return (
-                <div
-                  key={i}
-                  className={`rounded-xl p-8 text-center border-2 ${item.border} ${item.bg}`}
-                >
-                  {/* Icon */}
-                  <div
-                    className={`w-14 h-14 mx-auto mb-6 flex items-center justify-center rounded-lg ${item.iconBg}`}
-                  >
-                    <Icon size={24} className="text-white" />
-                  </div>
-
-                  {/* Title */}
-                  <h3
-                    className={`text-lg font-extrabold mb-3 ${item.titleColor}`}
-                  >
-                    {item.title}
-                  </h3>
-
-                  {/* Text */}
-                  <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">
-                    {item.text}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-        {/* Background Image */}
-        <div className="relative h-[520px] w-full overflow-hidden">
-          <img
-            src={hero}
-            alt="vet"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-[#3d2b57]/60" />
-
-          {/* Content */}
-          <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-            {/* small badge */}
-            <span className="mb-6 inline-flex items-center gap-2 bg-[#F6844D] text-white px-3 py-2 rounded-full text-xs sm:text-sm">
-              <svg
-                aria-hidden="true"
-                className="e-font-icon-svg e-fas-paw w-4"
-                viewBox="0 0 512 512"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="white"
-              >
-                <path d="M256 224c-79.41 0-192 122.76-192 200.25 0 34.9 26.81 55.75 71.74 55.75 48.84 0 81.09-25.08 120.26-25.08 39.51 0 71.85 25.08 120.26 25.08 44.93 0 71.74-20.85 71.74-55.75C448 346.76 335.41 224 256 224zm-147.28-12.61c-10.4-34.65-42.44-57.09-71.56-50.13-29.12 6.96-44.29 40.69-33.89 75.34 10.4 34.65 42.44 57.09 71.56 50.13 29.12-6.96 44.29-40.69 33.89-75.34zm84.72-20.78c30.94-8.14 46.42-49.94 34.58-93.36s-46.52-72.01-77.46-63.87-46.42 49.94-34.58 93.36c11.84 43.42 46.53 72.02 77.46 63.87zm281.39-29.34c-29.12-6.96-61.15 15.48-71.56 50.13-10.4 34.65 4.77 68.38 33.89 75.34 29.12 6.96 61.15-15.48 71.56-50.13 10.4-34.65-4.77-68.38-33.89-75.34zm-156.27 29.34c30.94 8.14 65.62-20.45 77.46-63.87 11.84-43.42-3.64-85.21-34.58-93.36s-65.62 20.45-77.46 63.87c-11.84 43.42 3.64 85.22 34.58 93.36z"></path>
-              </svg>
-              Get In Touch
-            </span>
-
-            {/* heading */}
-            <h2 className="text-white font-extrabold text-[36px] md:text-[56px] leading-tight max-w-4xl">
-              Let’s Connect and Talk <br /> About Pet Wellness
-            </h2>
-          </div>
-        </div>
-        <div className="relative z-20 -mt-32 pb-16">
+        <div className="relative z-20 pb-16">
           <div className="max-w-6xl mx-auto px-6">
             <div className="bg-white rounded-xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
               {/* Map */}
-              <div className="w-full h-[450px] lg:h-auto">
-                <iframe
-                  title="map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.6420767904756!2d55.1533619!3d25.080117700000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6d92534676a3%3A0xf95cba14b85fdf6c!2sKaras%20Veterinary%20Clinic!5e0!3m2!1sar!2seg!4v1771219766134!5m2!1sar!2seg"
-                  className="w-full h-full border-0"
-                  loading="lazy"
-                ></iframe>
+              <div className="w-full h-[300px] lg:h-auto">
+                <img src={img} className="w-full h-full" alt="" />
               </div>
 
               {/* Form */}
               <div className="p-6 lg:p-10">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3b2a6d] mb-8">
-                  Contact Pawelle for Trusted Pet Care
+                  Contact Karas for Trusted Pet Care
                 </h2>
                 <div className="border-[0.2px] border-[#D6D6D6] border-dashed mb-4"></div>
 
@@ -155,13 +64,36 @@ function Contact() {
 
                     <div>
                       <label className="block text-sm font-medium text-[#3b2a6d] mb-2">
-                        Company
+                        Branch/Department
                       </label>
-                      <input
-                        type="text"
-                        placeholder="Company"
-                        className="w-full bg-gray-200 focus:bg-gray-100 transition duration-300 text-sm rounded-lg px-4 py-3 outline-none focus:ring focus:ring-purple-400"
-                      />
+
+                      <div className="relative">
+                        <select
+                          defaultValue=""
+                          className="w-full appearance-none bg-gray-200 focus:bg-gray-100 transition duration-300 text-sm rounded-lg px-4 py-3 pr-12 outline-none focus:ring focus:ring-purple-400"
+                        >
+                          <option value=""  disabled>
+                            Select branch or department
+                          </option>
+                          <option value="jlt">Karas Vet JLT</option>
+                          <option value="business-bay">
+                            Karas Vet Business Bay
+                          </option>
+                          <option value="management">Management</option>
+                        </select>
+
+                        {/* Custom Arrow */}
+                        <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2  text-sm">
+                          <svg
+                            aria-hidden="true"
+                            class="e-font-icon-svg e-fas-angle-down w-2.5 fill-current"
+                            viewBox="0 0 320 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
+                          </svg>{" "}
+                        </span>
+                      </div>
                     </div>
                   </div>
 
@@ -213,7 +145,7 @@ function Contact() {
 
                   <button
                     type="submit"
-                    className="w-full cursor-pointer bg-[var(--primary)] hover:bg-[var(--secondary)] text-white hover:text-[var(--primary)] font-medium py-4 rounded-full transition flex items-center justify-center gap-2"
+                    className="w-full cursor-pointer bg-[var(--primary)] hover:bg-[var(--primary1)] text-white  font-medium py-3 rounded-full transition flex items-center justify-center gap-2"
                   >
                     ✉ Send Message
                   </button>
@@ -223,11 +155,11 @@ function Contact() {
 
             {/* Social */}
             <div className="flex flex-col md:flex-row justify-center items-center gap-6 mt-12">
-              <p className="text-[var(--primary)] font-bold text-2xl">
+              <p className="font-heading text-[var(--primary)] font-bold text-2xl">
                 Follow our Social Media
               </p>
               <div className="flex justify-center gap-2">
-                <a
+                {/* <a
                   href=""
                   className="bg-[var(--primary)] hover:bg-[var(--secondary)] text-white hover:text-[var(--primary)] hover:-translate-y-2 transition duration-300 p-4 rounded-full"
                 >
@@ -239,8 +171,8 @@ function Contact() {
                   >
                     <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
                   </svg>
-                </a>
-                <a
+                </a> */}
+                {/* <a
                   href=""
                   className="bg-[var(--primary)] hover:bg-[var(--secondary)] text-white hover:text-[var(--primary)] hover:-translate-y-2 transition duration-300 p-4 rounded-full"
                 >
@@ -252,9 +184,9 @@ function Contact() {
                   >
                     <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
                   </svg>
-                </a>
+                </a> */}
                 <a
-                  href=""
+                  href="https://www.instagram.com/karasvetdxb/"
                   className="bg-[var(--primary)] hover:bg-[var(--secondary)] text-white hover:text-[var(--primary)] hover:-translate-y-2 transition duration-300 p-4 rounded-full"
                 >
                   <svg
@@ -267,6 +199,20 @@ function Contact() {
                   </svg>
                 </a>
                 <a
+                  href="https://www.linkedin.com/company/karas-vet-clinic/"
+                  target="_blank"
+                  className="bg-[var(--primary)] hover:bg-[var(--secondary)] text-white hover:text-[var(--primary)] hover:-translate-y-2 transition duration-300 p-4 rounded-full"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="e-font-icon-svg e-fab-linkedin-in fill-current w-5 h-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
+                  </svg>
+                </a>
+                {/* <a
                   href=""
                   className="bg-[var(--primary)] hover:bg-[var(--secondary)] text-white hover:text-[var(--primary)] hover:-translate-y-2 transition duration-300 p-4 rounded-full"
                 >
@@ -278,7 +224,7 @@ function Contact() {
                   >
                     <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path>
                   </svg>
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
