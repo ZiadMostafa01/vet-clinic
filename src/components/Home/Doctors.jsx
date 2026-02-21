@@ -3,53 +3,33 @@ import { Navigation } from "swiper/modules";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 
+// 1. استيراد الداتا الموحدة
+import { allStaffData } from "../../data/staffData";
+
 // استيراد ملفات Swiper
 import "swiper/css";
 import "swiper/css/navigation";
-
-// استيراد الصور (تأكد من المسارات)
-import doctor1 from "../../assets/images/doctors/Ajla Zahirovic.jpg";
-import doctor2 from "../../assets/images/doctors/Abdullah Ghonim.jpg";
-import doctor3 from "../../assets/images/doctors/Milana Skoric.jpg";
-import doctor4 from "../../assets/images/doctors/Dr. Mostafa Zein.jpg";
-import doctor5 from "../../assets/images/doctors/Usama Rehman.jpg";
-
-const doctors = [
-  {
-    name: "Dr. Aila Zahirovic, DVM (RVMP)",
-    role: "Medical Director | JLT Branch",
-    image: doctor1,
-  },
-  {
-    name: "Dr. Abdullah Mahmoud, DVM",
-    role: "Veterinary Surgeon | JLT Branch",
-    image: doctor2,
-  },
-  {
-    name: "Dr. Milana Skoric, DVM, CVA",
-    role: "Veterinary Clinician | JLT Branch",
-    image: doctor3,
-  },
-  {
-    name: "Dr. Mostafa Zein, DVM",
-    role: "Veterinary Doctor | Business Bay",
-    image: doctor4,
-  },
-  {
-    name: "Dr. Usama Rehman, DVM",
-    role: "Veterinary Doctor | Business Bay",
-    image: doctor5,
-  },
-];
 
 function Doctors() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
+  // 2. تصفية أول 5 دكاترة فقط عشان يظهروا في السلايدر زي ما كنت عامل يدوي
+  const doctorsSlider = allStaffData
+    .filter(
+      (member) =>
+        member.id.includes("ajla") ||
+        member.id.includes("abdullah") ||
+        member.id.includes("milana") ||
+        member.id.includes("mostafa") ||
+        member.id.includes("usama"),
+    )
+    .slice(0, 5);
+
   return (
     <section className="bg-[var(--karas_paper)] py-24 px-6 relative">
       <div className="max-w-7xl mx-auto relative">
-        {/* الهيدر بنفس ستايل الصورة */}
+        {/* الهيدر */}
         <div className="border-b border-[#d1cdc2] mb-12 pb-4 flex justify-between items-end">
           <div>
             <h2 className="text-3xl font-serif italic text-[#444]">
@@ -60,7 +40,7 @@ function Doctors() {
             </p>
           </div>
 
-          {/* أزرار التنقل (Arrows) بشكل أنظف */}
+          {/* أزرار التنقل */}
           <div className="flex gap-4 mb-2">
             <button
               ref={prevRef}
@@ -97,10 +77,14 @@ function Doctors() {
           }}
           className="team-swiper"
         >
-          {doctors.map((doctor, index) => (
-            <SwiperSlide key={index}>
-              <Link to="/our-team" className="flex flex-col items-start group">
-                {/* برواز الصورة - نفس تصميم الصفحة السابقة */}
+          {doctorsSlider.map((doctor) => (
+            <SwiperSlide key={doctor.id}>
+              {/* اللينك دلوقتي شغال بـ ID حقيقي من ملف الداتا */}
+              <Link
+                to={`/doctor/${doctor.id}`}
+                className="flex flex-col items-start group"
+              >
+                {/* برواز الصورة - نفس تصميمك */}
                 <div className="bg-white p-2 shadow-sm border border-[#e5e1d8] mb-5 w-full aspect-[3/4] overflow-hidden">
                   <img
                     src={doctor.image}
@@ -114,7 +98,7 @@ function Doctors() {
                   {doctor.name}
                 </h4>
                 <p className="text-[12px] text-[#888] mt-1 italic font-serif tracking-wide leading-tight">
-                  {doctor.role}
+                  {doctor.title} {/* غيرناها لـ title عشان تطابق ملف الداتا */}
                 </p>
               </Link>
             </SwiperSlide>

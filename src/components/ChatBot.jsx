@@ -165,13 +165,13 @@ const Chatbot = () => {
             <div className="flex items-center gap-2">
               <button
                 onClick={newChat}
-                className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold py-1.5 px-3 rounded-full transition-all flex items-center gap-1"
+                className="cursor-pointer bg-white/10 hover:bg-white/20 text-white text-xs font-bold py-1.5 px-3 rounded-full transition-all flex items-center gap-1"
               >
                 <RotateCcw size={12} /> New Chat
               </button>
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-white hover:bg-white/20 p-1 rounded-full transition-all"
+                className="cursor-pointer text-white hover:bg-white/20 p-1 rounded-full transition-all"
               >
                 <X size={20} />
               </button>
@@ -262,7 +262,7 @@ const Chatbot = () => {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-[60px] h-[60px] rounded-full flex items-center justify-center text-white shadow-2xl transition-all duration-300 transform hover:scale-110 relative ${
+        className={`cursor-pointer w-[60px] h-[60px] rounded-full flex items-center justify-center text-white shadow-2xl transition-all duration-300 transform hover:scale-110 relative ${
           isOpen ? "bg-[var(--primary)] rotate-90" : "bg-[var(--primary)]"
         }`}
       >

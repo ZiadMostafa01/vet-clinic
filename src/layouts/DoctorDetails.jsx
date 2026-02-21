@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { allStaffData } from "../pages/OurTeam"; // تأكد من صحة مسار ملف OurTeam
+import { allStaffData } from "../data/staffData";
 
 function DoctorDetails() {
   const { id } = useParams();
@@ -38,21 +38,31 @@ function DoctorDetails() {
           <div className="space-y-8">
             <section>
               <h3 className="text-xs font-bold uppercase tracking-widest text-[#999] border-b border-[#d1cdc2] mb-4 pb-1">
+                Areas of focus
+              </h3>
+              <p className="text-gray-600 italic leading-relaxed">
+                {doctor.areasOfFocus}
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xs font-bold uppercase tracking-widest text-[#999] border-b border-[#d1cdc2] mb-4 pb-1">
                 About
               </h3>
               <p className="text-gray-600 leading-relaxed italic">
                 {doctor.about}
               </p>
             </section>
-
-            <section>
-              <h3 className="text-xs font-bold uppercase tracking-widest text-[#999] border-b border-[#d1cdc2] mb-4 pb-1">
-                Education
-              </h3>
-              <p className="text-gray-600 italic leading-relaxed">
-                {doctor.education}
-              </p>
-            </section>
+            {doctor.education && (
+              <section>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-[#999] border-b border-[#d1cdc2] mb-4 pb-1">
+                  Education / Certifications
+                </h3>
+                <p className="text-gray-600 italic leading-relaxed">
+                  {doctor.education}
+                </p>
+              </section>
+            )}
           </div>
 
           <a
