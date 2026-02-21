@@ -92,12 +92,12 @@ function OurTeam() {
         </div>
 
         <TeamSection title="Doctors" members={doctorsBB} />
-        <TeamSection title="Nursing Team | BB" members={nurses.slice(5, 6)} />
+        <TeamSection title="Nursing Team | Business Bay" members={nurses.slice(5, 6)} />
         <TeamSection
-          title="Animal Handlers | BB"
+          title="Animal Handlers | Business Bay"
           members={handlers.slice(1, 4)}
         />
-        <TeamSection title="Administrators | BB" members={admins.slice(4, 6)} />
+        <TeamSection title="Administrators | Business Bay" members={admins.slice(4, 6)} />
       </main>
     </div>
   );
